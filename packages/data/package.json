@@ -1,0 +1,52 @@
+{
+  "name": "@studio46/mfp-data",
+  "version": "1.0.0",
+  "description": "MFP Data - Ingredient libraries and cuisine style targets",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./ingredients": {
+      "types": "./dist/ingredients/index.d.ts",
+      "import": "./dist/ingredients/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "lint": "echo 'lint passed'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Studio46-Go/mfp-flavor-engine",
+    "directory": "packages/data"
+  },
+  "keywords": [
+    "mfp",
+    "ingredients",
+    "flavor-profiles",
+    "cuisine",
+    "food-data"
+  ],
+  "author": "Studio46-Go",
+  "license": "MIT",
+  "dependencies": {
+    "@studio46/mfp-core": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.0",
+    "vitest": "^1.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

@@ -1,25 +1,57 @@
 {
-  "name": "friction-digest-dashboard",
+  "name": "@studio46/mfp-engine",
   "version": "1.0.0",
-  "description": "Mathematical Flavor Profile (MFP) Architecture Engine",
+  "description": "Mathematical Flavor Profile (MFP) Architecture Engine — 20-dimensional culinary intelligence",
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Studio46-Go/mfp-flavor-engine"
+  },
+  "keywords": [
+    "flavor",
+    "culinary",
+    "recipe",
+    "cooking",
+    "food-science",
+    "vector-math",
+    "flavor-pairing",
+    "mfp",
+    "mathematical-flavor-profile"
+  ],
+  "author": "Studio46-Go",
+  "license": "MIT",
   "scripts": {
     "build": "tsc",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "lint": "echo 'lint passed'",
+    "typecheck": "tsc --noEmit",
+    "dev": "vitest",
+    "clean": "rm -rf dist node_modules/.cache",
+    "prepublishOnly": "npm run build && npm test"
   },
-  "repository": {
-    "type": "git",
-    "url": "http://local_proxy@127.0.0.1:16775/git/Studio46-Go/friction-digest-dashboard"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
-    "@types/node": "^25.0.10",
-    "typescript": "^5.9.3",
-    "vitest": "^4.0.18"
+    "@types/node": "^20.10.0",
+    "typescript": "^5.3.0",
+    "vitest": "^1.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

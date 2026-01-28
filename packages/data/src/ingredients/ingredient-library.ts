@@ -9,13 +9,13 @@
  *   EARTHY, NUTTY, FLORAL, TEXTURE_CRISP, TEXTURE_TENDER]
  */
 
-import { flavorVector } from "../types/flavor-space.js";
 import {
+  flavorVector,
   StructuralRole,
   SolubilityClass,
   IngredientClass,
-} from "../types/ingredient.js";
-import type { IngredientCard } from "../types/ingredient.js";
+  type IngredientCard,
+} from "@studio46/mfp-core";
 import { registerAAIngredients } from "./aa-ingredient-library.js";
 
 function card(

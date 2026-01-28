@@ -6,8 +6,7 @@
  * for a particular cuisine or dish style.
  */
 
-import { flavorVector } from "../types/flavor-space.js";
-import type { FlavorVector } from "../types/flavor-space.js";
+import { flavorVector, type FlavorVector } from "@studio46/mfp-core";
 
 export interface StyleTarget {
   id: string;
