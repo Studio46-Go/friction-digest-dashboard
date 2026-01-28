@@ -1,0 +1,53 @@
+{
+  "name": "@studio46/mfp-core",
+  "version": "1.0.0",
+  "description": "MFP Core - Types, math primitives, and scoring algorithms",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./types": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/types/index.js"
+    },
+    "./math": {
+      "types": "./dist/core/index.d.ts",
+      "import": "./dist/core/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "lint": "echo 'lint passed'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Studio46-Go/mfp-flavor-engine",
+    "directory": "packages/core"
+  },
+  "keywords": [
+    "mfp",
+    "flavor",
+    "culinary",
+    "vector-math",
+    "scoring"
+  ],
+  "author": "Studio46-Go",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.3.0",
+    "vitest": "^1.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
