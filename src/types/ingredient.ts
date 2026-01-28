@@ -3,6 +3,7 @@
  */
 
 import type { FlavorVector } from "./flavor-space.js";
+import type { IngredientMetadata } from "./ingredient-metadata.js";
 
 /** Structural roles an ingredient can fulfill */
 export enum StructuralRole {
@@ -17,6 +18,8 @@ export enum StructuralRole {
   HERB_FINISH = "HERB_FINISH",
   HEAT_AGENT = "HEAT_AGENT",
   TEXTURE_AGENT = "TEXTURE_AGENT",
+  GARNISH = "GARNISH",
+  LIQUID_BASE = "LIQUID_BASE",
 }
 
 /** Solubility class for an ingredient */
@@ -42,6 +45,10 @@ export enum IngredientClass {
   ALLIUM_CLASS = "ALLIUM_CLASS",
   SPICY = "SPICY",
   NEUTRAL = "NEUTRAL",
+  PORK_CURED = "PORK_CURED",
+  OFFAL = "OFFAL",
+  LEGUME = "LEGUME",
+  FRUIT_SWEET = "FRUIT_SWEET",
 }
 
 /**
@@ -73,6 +80,9 @@ export interface IngredientCard {
 
   /** Ingredient class for clash matrix lookups */
   ingredientClass: IngredientClass;
+
+  /** Optional cultural/regional metadata */
+  metadata?: IngredientMetadata;
 }
 
 /** Role-based component category for normalization */

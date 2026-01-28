@@ -128,6 +128,38 @@ STYLE_TARGETS.set("mediterranean", {
   weights: UNIFORM_WEIGHTS,
 });
 
+// ─── Soul Food (AA Core) ───────────────────────────────────────────────────
+// Characterized by: potlikker greens, smoked pork (ham hock/bacon), slow-braised,
+// layered umami from pork fat rendering, bitter greens balanced with vinegar/hot sauce
+
+STYLE_TARGETS.set("soul_food", {
+  id: "soul_food",
+  name: "Soul Food (AA Core)",
+  profile: flavorVector([
+    //  UMA  SLT  SWT  SOR  BIT  HEA  WRM  SMK  RST  FAT  CRM  HRB  CIT  ALL  FRM  ERT  NUT  FLO  CRP  TND
+    0.60, 0.55, 0.35, 0.35, 0.40, 0.30, 0.25, 0.55, 0.30, 0.60, 0.25, 0.20, 0.10, 0.45, 0.15, 0.35, 0.15, 0.00, 0.20, 0.70,
+  ]),
+  weights: flavorVector([
+    1.0, 0.9, 0.7, 0.8, 1.1, 0.7, 0.5, 1.3, 0.6, 1.2, 0.5, 0.4, 0.3, 0.9, 0.4, 0.8, 0.4, 0.1, 0.4, 1.1,
+  ]),
+});
+
+// ─── Gulf Creole (Louisiana) ───────────────────────────────────────────────
+// Characterized by: Holy Trinity (onion, celery, bell pepper), dark roux, seafood,
+// cayenne/hot sauce, bay leaf/thyme, smoked pork sausage (andouille/tasso)
+
+STYLE_TARGETS.set("gulf_creole", {
+  id: "gulf_creole",
+  name: "Gulf Creole (Louisiana)",
+  profile: flavorVector([
+    //  UMA  SLT  SWT  SOR  BIT  HEA  WRM  SMK  RST  FAT  CRM  HRB  CIT  ALL  FRM  ERT  NUT  FLO  CRP  TND
+    0.65, 0.50, 0.25, 0.30, 0.15, 0.55, 0.30, 0.50, 0.45, 0.55, 0.20, 0.45, 0.15, 0.55, 0.20, 0.30, 0.25, 0.05, 0.25, 0.55,
+  ]),
+  weights: flavorVector([
+    1.1, 0.8, 0.5, 0.7, 0.4, 1.2, 0.7, 1.2, 1.0, 1.0, 0.4, 1.0, 0.4, 1.1, 0.5, 0.7, 0.6, 0.2, 0.5, 0.8,
+  ]),
+});
+
 /** Get a style target by ID */
 export function getStyleTarget(id: string): StyleTarget | undefined {
   return STYLE_TARGETS.get(id);

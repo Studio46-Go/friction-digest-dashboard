@@ -16,6 +16,7 @@ import {
   IngredientClass,
 } from "../types/ingredient.js";
 import type { IngredientCard } from "../types/ingredient.js";
+import { registerAAIngredients } from "./aa-ingredient-library.js";
 
 function card(
   id: string,
@@ -467,6 +468,9 @@ const ALL_INGREDIENTS = [
 for (const ingredient of ALL_INGREDIENTS) {
   INGREDIENT_LIBRARY.set(ingredient.id, ingredient);
 }
+
+// Register AA foodways ingredients
+registerAAIngredients(INGREDIENT_LIBRARY);
 
 /** Get an ingredient by ID, throwing if not found */
 export function getIngredient(id: string): IngredientCard {

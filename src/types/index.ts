@@ -27,3 +27,10 @@ export type {
   Recommendation,
   MFPEngineOutput,
 } from "./scoring.js";
+
+export {
+  RegionTag,
+  AATag,
+  CalibrationStatus,
+  type IngredientMetadata,
+} from "./ingredient-metadata.js";
