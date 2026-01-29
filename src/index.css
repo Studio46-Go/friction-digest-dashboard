@@ -1,0 +1,346 @@
+/* -------------------------------------------------------------------------- */
+/* Design tokens                                                              */
+/* -------------------------------------------------------------------------- */
+:root {
+  /* Severity colors */
+  --color-critical: #e53e3e;
+  --color-high: #dd6b20;
+  --color-medium: #d69e2e;
+  --color-low: #38a169;
+
+  /* Category colors */
+  --color-ux: #805ad5;
+  --color-performance: #3182ce;
+  --color-reliability: #e53e3e;
+  --color-onboarding: #38b2ac;
+  --color-a11y: #d69e2e;
+
+  /* Status colors */
+  --color-open: #e53e3e;
+  --color-investigating: #dd6b20;
+  --color-resolved: #38a169;
+
+  /* Surfaces */
+  --bg: #0f172a;
+  --bg-card: #1e293b;
+  --bg-input: #334155;
+  --text: #e2e8f0;
+  --text-muted: #94a3b8;
+  --border: #334155;
+  --radius: 8px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Reset & base                                                               */
+/* -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Dashboard layout                                                           */
+/* -------------------------------------------------------------------------- */
+.dashboard {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.dashboard__header {
+  margin-bottom: 2rem;
+}
+
+.dashboard__header h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #f8fafc;
+}
+
+.dashboard__subtitle {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Summary cards                                                              */
+/* -------------------------------------------------------------------------- */
+.summary-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.card {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  border-left: 4px solid var(--border);
+}
+
+.card__value {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.card__label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.card--total {
+  border-left-color: #3182ce;
+}
+.card--total .card__value {
+  color: #63b3ed;
+}
+
+.card--open {
+  border-left-color: var(--color-open);
+}
+.card--open .card__value {
+  color: #fc8181;
+}
+
+.card--resolved {
+  border-left-color: var(--color-resolved);
+}
+.card--resolved .card__value {
+  color: #68d391;
+}
+
+.card--critical {
+  border-left-color: var(--color-critical);
+}
+.card--critical .card__value {
+  color: #feb2b2;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Breakdown charts                                                           */
+/* -------------------------------------------------------------------------- */
+.dashboard__charts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 700px) {
+  .dashboard__charts {
+    grid-template-columns: 1fr;
+  }
+}
+
+.breakdown-chart {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+}
+
+.breakdown-chart__title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #f8fafc;
+}
+
+.breakdown-chart__bars {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.breakdown-chart__row {
+  display: grid;
+  grid-template-columns: 100px 1fr 40px;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.breakdown-chart__label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.breakdown-chart__track {
+  height: 8px;
+  background: var(--bg-input);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.breakdown-chart__fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.breakdown-chart__value {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: right;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Filter bar                                                                 */
+/* -------------------------------------------------------------------------- */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.filter-bar__search {
+  flex: 1 1 220px;
+}
+
+.filter-bar select,
+.filter-bar input {
+  background: var(--bg-input);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+}
+
+.filter-bar select:focus,
+.filter-bar input:focus {
+  outline: 2px solid #63b3ed;
+  outline-offset: -1px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Friction table                                                             */
+/* -------------------------------------------------------------------------- */
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.friction-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.friction-table th {
+  text-align: left;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  padding: 0.75rem;
+  border-bottom: 2px solid var(--border);
+}
+
+.friction-table td {
+  padding: 0.75rem;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.875rem;
+  vertical-align: top;
+}
+
+.friction-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.friction-table__desc {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.friction-table select {
+  background: var(--bg-input);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.8rem;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--text-muted);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Badges                                                                     */
+/* -------------------------------------------------------------------------- */
+.badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.badge--critical {
+  background: rgba(229, 62, 62, 0.2);
+  color: #fc8181;
+}
+.badge--high {
+  background: rgba(221, 107, 32, 0.2);
+  color: #fbd38d;
+}
+.badge--medium {
+  background: rgba(214, 158, 46, 0.2);
+  color: #fefcbf;
+}
+.badge--low {
+  background: rgba(56, 161, 105, 0.2);
+  color: #9ae6b4;
+}
+
+.badge--category-ux {
+  background: rgba(128, 90, 213, 0.2);
+  color: #d6bcfa;
+}
+.badge--category-performance {
+  background: rgba(49, 130, 206, 0.2);
+  color: #90cdf4;
+}
+.badge--category-reliability {
+  background: rgba(229, 62, 62, 0.15);
+  color: #feb2b2;
+}
+.badge--category-onboarding {
+  background: rgba(56, 178, 172, 0.2);
+  color: #81e6d9;
+}
+.badge--category-accessibility {
+  background: rgba(214, 158, 46, 0.15);
+  color: #fefcbf;
+}
