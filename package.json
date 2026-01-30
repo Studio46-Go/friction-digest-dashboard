@@ -1,5 +1,5 @@
 {
-  "name": "@studio46/mfp-engine",
+  "name": "mfp-flavor-engine",
   "version": "1.1.0",
   "description": "Mathematical Flavor Profile (MFP) Architecture Engine — 20-dimensional culinary intelligence",
   "type": "module",
